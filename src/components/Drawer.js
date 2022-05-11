@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PersonIcon from '@mui/icons-material/Person';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import { Routes, Route, Link } from "react-router-dom";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -31,10 +32,11 @@ export default function TemporaryDrawer() {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Customerpage', 'Trainingpage'].map((text, index) => (
+                {['Customerpage', 'Trainingpage', 'Scheduler'].map((text, index) => (
                     <ListItem button key={text} component={Link} to={"/" + text}>
                         <ListItemIcon>
-                            {index % 2 === 0 ? <PersonIcon /> : <DirectionsRunIcon />}
+                            {/* {index % 2 === 0 ? <PersonIcon /> : <DirectionsRunIcon />} */}
+                            {index == 0 && <PersonIcon /> || index == 1 && <DirectionsRunIcon /> || index == 2 && <CalendarMonthIcon />}
                         </ListItemIcon>
                         <ListItemText primary={text} />
                     </ListItem>
